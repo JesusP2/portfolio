@@ -15,7 +15,11 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: 'Jesus Perez Perez | Software Engineer',
+      },
+      {
+        name: 'description',
+        content: 'Fullstack developer with 6+ years of experience in web development. Specialized in React, Node.js, TypeScript, and cloud technologies.',
       },
     ],
     links: [
@@ -31,11 +35,11 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="antialiased">
         {children}
         <TanStackDevtools
           config={{
