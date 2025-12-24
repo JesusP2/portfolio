@@ -48,21 +48,25 @@ function Portfolio() {
       name: "Omokage",
       description: content.projects.items.omokage.description,
       tags: ["LLM", "Local-first", "Offline"],
+      url: "https://omokage.app",
     },
     {
       name: "NotMyAnimeList",
       description: content.projects.items.notMyAnimeList.description,
       tags: ["Anime", "Tracker", "Minigames"],
+      url: "https://notmyanimelist.com",
     },
     {
       name: "Tanstack Faster",
       description: content.projects.items.tanstackFaster.description,
       tags: ["TanStack", "Performance", "Ecommerce"],
+      url: "https://tanstack-faster.jesusp2.com/",
     },
     {
       name: "Nimonikku",
       description: content.projects.items.nimonikku.description,
       tags: ["AI", "Learning", "Flashcards"],
+      url: "https://nimonikku.com",
     },
   ];
 
@@ -126,7 +130,31 @@ function Portfolio() {
               {projects.map((project, index) => (
                 <Card key={index}>
                   <CardHeader>
-                    <CardTitle>{project.name}</CardTitle>
+                    <CardTitle>
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-1 transition-colors hover:text-primary"
+                      >
+                        {project.name}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="inline-block transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        >
+                          <path d="M7 7h10v10" />
+                          <path d="M7 17 17 7" />
+                        </svg>
+                      </a>
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-3">
                     <p className="text-muted-foreground">
@@ -174,36 +202,6 @@ function Portfolio() {
                   </CardContent>
                 </Card>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section>
-        <div className="mx-auto max-w-4xl px-6 py-16">
-          <div className="space-y-8">
-            <div className="space-y-2">
-              <p className="text-muted-foreground text-sm">
-                {content.contact.comment}
-              </p>
-              <h2 className="text-2xl font-bold">{content.contact.title}</h2>
-            </div>
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-              <a
-                href="mailto:jesusprzprz.e@gmail.com"
-                className={buttonVariants({ variant: "default" })}
-              >
-                jesusprzprz.e@gmail.com
-              </a>
-              <a
-                href="https://linkedin.com/in/jesus-perez-962401230/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={buttonVariants({ variant: "outline" })}
-              >
-                LinkedIn
-              </a>
             </div>
           </div>
         </div>
@@ -276,6 +274,36 @@ function Portfolio() {
                   </div>
                 </CardContent>
               </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section>
+        <div className="mx-auto max-w-4xl px-6 py-16">
+          <div className="space-y-8">
+            <div className="space-y-2">
+              <p className="text-muted-foreground text-sm">
+                {content.contact.comment}
+              </p>
+              <h2 className="text-2xl font-bold">{content.contact.title}</h2>
+            </div>
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <a
+                href="mailto:jesusprzprz.e@gmail.com"
+                className={buttonVariants({ variant: "default" })}
+              >
+                jesusprzprz.e@gmail.com
+              </a>
+              <a
+                href="https://linkedin.com/in/jesus-perez-962401230/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonVariants({ variant: "outline" })}
+              >
+                LinkedIn
+              </a>
             </div>
           </div>
         </div>
