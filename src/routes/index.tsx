@@ -8,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 
 export const Route = createFileRoute("/")({ component: Portfolio });
 
@@ -16,31 +15,16 @@ const experiences = [
   {
     title: "Fullstack Developer",
     company: "Jaxitank",
-    location: "Chihuahua, Mexico",
     period: "May 2022 - Present",
     description:
-      "Consultant providing technical support for the development of web applications for National Association of Realtors.",
-    highlights: [
-      "Developed frontend and backend using Vite, React, and Express",
-      "Deployed and hosted projects on Azure Cloud",
-      "Established development standards for git, eslint, and typescript",
-      "Unified projects in a single monorepo using Turborepo",
-      "Optimized CI/CD pipelines from 8-10 minutes to 2-3 minutes",
-      "Migrated legacy projects from JavaScript/CRA to TypeScript/Vite",
-      "Mentored developers through pair programming",
-    ],
+      "Consultant providing technical support for the development of web applications for National Association of Realtors. Developed frontend and backend solutions using Vite, React, and Express, with deployments hosted on Azure Cloud. Established development standards for git, eslint, and typescript while unifying projects into a single monorepo using Turborepo. Optimized CI/CD pipelines from 8-10 minutes down to 2-3 minutes, migrated legacy projects from JavaScript/CRA to TypeScript/Vite, and mentored developers through pair programming.",
   },
   {
     title: "Fullstack Developer",
     company: "Kuayolo",
-    location: "Tampico, Mexico",
     period: "May 2020 - May 2022",
-    description: "Built and maintained web applications and APIs.",
-    highlights: [
-      "Developed APIs using Node, Express, and Nest",
-      "Worked with Firebase and GCP",
-      "Built and maintained SPA websites using Vue and React",
-    ],
+    description:
+      "Built and maintained web applications and APIs using Node, Express, and NestJS. Worked extensively with Firebase and GCP for backend services, while developing and maintaining SPA websites using Vue and React.",
   },
 ];
 
@@ -185,20 +169,10 @@ function Portfolio() {
                         {exp.period}
                       </Badge>
                     </div>
-                    <CardDescription>
-                      {exp.company} - {exp.location}
-                    </CardDescription>
+                    <CardDescription>{exp.company}</CardDescription>
                   </CardHeader>
-                  <CardContent className="space-y-4">
+                  <CardContent>
                     <p className="text-muted-foreground">{exp.description}</p>
-                    <ul className="space-y-1.5 text-sm">
-                      {exp.highlights.map((highlight, i) => (
-                        <li key={i} className="flex gap-2">
-                          <span className="text-primary shrink-0">-</span>
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </CardContent>
                 </Card>
               ))}
