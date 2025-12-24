@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { LocaleSwitcher } from "@/components/locale-switcher";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { useI18nHTMLAttributes } from "@/hooks/useI18nHTMLAttributes";
 
 export const Route = createFileRoute("/{-$locale}/")({
@@ -83,7 +84,10 @@ function Portfolio() {
                   {content.hero.title}
                 </p>
               </div>
-              <LocaleSwitcher />
+              <div className="flex items-center gap-2">
+                <ThemeToggle />
+                <LocaleSwitcher />
+              </div>
             </div>
             <p className="max-w-2xl text-muted-foreground leading-relaxed">
               {content.hero.description}
