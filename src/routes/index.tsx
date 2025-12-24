@@ -17,22 +17,21 @@ const experiences = [
     company: "Jaxitank",
     period: "May 2022 - Present",
     description:
-      "Consultant providing technical support for the development of web applications for National Association of Realtors. Developed frontend and backend solutions using Vite, React, and Express, with deployments hosted on Azure Cloud. Established development standards for git, eslint, and typescript while unifying projects into a single monorepo using Turborepo. Optimized CI/CD pipelines from 8-10 minutes down to 2-3 minutes, migrated legacy projects from JavaScript/CRA to TypeScript/Vite, and mentored developers through pair programming.",
+      "Here I've been helping build very complex web forms for the National Association of Realtors. Unified multiple projects into a single monorepo, which made everyone's life easier, and cut our CI/CD pipeline times from 10 minutes down to just 2-3. I've also enjoyed mentoring teammates through pair programming sessions.",
   },
   {
     title: "Fullstack Developer",
     company: "Kuayolo",
     period: "May 2020 - May 2022",
-    description:
-      "Built and maintained web applications and APIs using Node, Express, and NestJS. Worked extensively with Firebase and GCP for backend services, while developing and maintaining SPA websites using Vue and React.",
+    description: "This is where my web journey began. I started building APIs with node and express, deploying apps to GCP and maintaining SPAs with React and Vue."
   },
 ];
 
 const skills = {
-  frontend: ["React", "Vue", "Next.js", "TypeScript", "Tailwind CSS", "Vite"],
-  backend: ["Node.js", "Express", "NestJS", "REST APIs"],
-  cloud: ["Azure", "AWS", "GCP", "Firebase", "Cloudflare"],
-  tools: ["Git", "Turborepo", "CI/CD", "Docker", "ESLint", "Redis"],
+  frontend: ["React", "Vue", "Next.js", "TypeScript"],
+  backend: ["Node", "Bun", "Express", "NestJS"],
+  cloud: ["Azure", "AWS", "GCP/Firebase", "Cloudflare"],
+  tools: ["Turborepo", "CI/CD", "Docker"],
 };
 
 function Portfolio() {
@@ -52,10 +51,7 @@ function Portfolio() {
               </p>
             </div>
             <p className="max-w-2xl text-muted-foreground leading-relaxed">
-              Fullstack developer with 6+ years of experience focused in web
-              development. Experienced working with international teams using
-              React.js and Node.js. Passionate about clean code, developer
-              experience, and continuous improvement.
+              I've been building things for the web for over 6 years now. I really enjoy working with React and Node, and I've had the chance to collaborate with some great teams along the way.
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <Button variant="default" asChild>
@@ -83,7 +79,7 @@ function Portfolio() {
           <div className="space-y-8">
             <div className="space-y-2">
               <p className="text-muted-foreground text-sm">
-                // What I work with
+                // my favorite tools to work with
               </p>
               <h2 className="text-2xl font-bold">Skills & Technologies</h2>
             </div>
@@ -155,7 +151,7 @@ function Portfolio() {
           <div className="space-y-8">
             <div className="space-y-2">
               <p className="text-muted-foreground text-sm">
-                // Where I've worked
+                // places I've had the chance to grow
               </p>
               <h2 className="text-2xl font-bold">Experience</h2>
             </div>
@@ -186,7 +182,7 @@ function Portfolio() {
         <div className="mx-auto max-w-4xl px-6 py-16">
           <div className="space-y-8">
             <div className="space-y-2">
-              <p className="text-muted-foreground text-sm">// Let's connect</p>
+              <p className="text-muted-foreground text-sm">// I'd love to hear from you</p>
               <h2 className="text-2xl font-bold">Contact</h2>
             </div>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
