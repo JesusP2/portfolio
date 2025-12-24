@@ -6,7 +6,7 @@ export const Route = createFileRoute("/")({
   beforeLoad: () => {
     const { localePrefix } = getPrefix(Locales.ENGLISH);
     throw redirect({
-      to: "/$locale",
+      to: "/{-$locale}",
       params: { locale: localePrefix || "en" },
     });
   },

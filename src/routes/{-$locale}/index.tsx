@@ -35,12 +35,6 @@ function Portfolio() {
       period: "May 2022 - Present",
       description: content.experience.items.jaxitank.description,
     },
-    {
-      title: content.experience.items.kuayolo.title,
-      company: "Kuayolo",
-      period: "May 2020 - May 2022",
-      description: content.experience.items.kuayolo.description,
-    },
   ];
 
   const projects = [
@@ -98,7 +92,7 @@ function Portfolio() {
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <a
-                href="mailto:jesusprzprz.e@gmail.com"
+                href="#contact"
                 className={buttonVariants({ variant: "default" })}
               >
                 {content.hero.cta}
@@ -280,7 +274,7 @@ function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section>
+      <section id="contact" className="scroll-mt-8">
         <div className="mx-auto max-w-4xl px-6 py-16">
           <div className="space-y-8">
             <div className="space-y-2">
