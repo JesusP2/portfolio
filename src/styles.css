@@ -127,3 +127,65 @@
     @apply font-sans;
     }
 }
+
+/* View Transition Animation for Theme Toggle */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+/* Dancing character during transition */
+::view-transition-old(root)::after,
+::view-transition-new(root)::before {
+  content: "";
+  position: fixed;
+  top: var(--y, 50%);
+  left: var(--x, 50%);
+  width: 100px;
+  height: 100px;
+  background-image: url("https://media.tenor.com/cyORI7kwShQAAAAi/shigure-ui-dance.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  pointer-events: none;
+  animation: dance-appear 500ms ease-out forwards;
+}
+
+@keyframes dance-appear {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+
+  ::view-transition-old(root)::after,
+  ::view-transition-new(root)::before {
+    display: none;
+  }
+}

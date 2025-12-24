@@ -1,19 +1,60 @@
+import { useRef } from "react";
 import { useTheme } from "./theme-provider";
 import { buttonVariants } from "@/components/ui/button";
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const toggleTheme = () => {
-    if (theme === "dark") {
-      setTheme("light");
-    } else {
-      setTheme("dark");
+  const toggleTheme = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+
+    // Fallback for browsers without View Transitions API
+    if (!document.startViewTransition) {
+      setTheme(newTheme);
+      return;
     }
+
+    // Get click position for the animation origin
+    const x = e.clientX;
+    const y = e.clientY;
+
+    // Calculate the maximum radius needed to cover the entire screen
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    // Set CSS custom properties for the animation
+    document.documentElement.style.setProperty("--x", `${x}px`);
+    document.documentElement.style.setProperty("--y", `${y}px`);
+    document.documentElement.style.setProperty("--r", `${endRadius}px`);
+
+    const transition = document.startViewTransition(() => {
+      setTheme(newTheme);
+    });
+
+    await transition.ready;
+
+    // Animate the new view with clip-path
+    document.documentElement.animate(
+      {
+        clipPath: [
+          `circle(0px at ${x}px ${y}px)`,
+          `circle(${endRadius}px at ${x}px ${y}px)`,
+        ],
+      },
+      {
+        duration: 500,
+        easing: "ease-out",
+        pseudoElement: "::view-transition-new(root)",
+      }
+    );
   };
 
   return (
     <button
+      ref={buttonRef}
       onClick={toggleTheme}
       className={buttonVariants({ variant: "outline", size: "icon-sm" })}
       aria-label="Toggle theme"
